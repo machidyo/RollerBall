@@ -11,38 +11,29 @@ public class RollerAgent : Agent
 
     public override void Initialize()
     {
-        Debug.Log("START Initialize");
         rBody = GetComponent<Rigidbody>();
-        if (rBody != null)
-        {
-            Debug.Log("rBody is NOT null.");
-        }
     }
 
     // as starting episode
     public override void OnEpisodeBegin()
     {
-        Debug.Log("START OnEpisodeBegin");
-        
-        if (transform.position.y < 0)
+        if (transform.localPosition.y < 0)
         {
             rBody.angularVelocity = Vector3.zero;
             rBody.velocity = Vector3.zero;
-            transform.position = new Vector3(0.0f, 0.5f, 0.0f);
+            transform.localPosition = new Vector3(0.0f, 0.5f, 0.0f);
         }
 
         var randx = Random.value * 8 - 4;
         var randz = Random.value * 8 - 4;
-        target.position = new Vector3(randx, 0.5f, randz);
+        target.localPosition = new Vector3(randx, 0.5f, randz);
     }
 
     // call by observation
     public override void CollectObservations(VectorSensor sensor)
     {
-        Debug.Log("START CollectObservations");
-
-        sensor.AddObservation(target.position);
-        sensor.AddObservation(transform.position);
+        sensor.AddObservation(target.localPosition);
+        sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(rBody.velocity.x);
         sensor.AddObservation(rBody.velocity.z);
     }
@@ -50,13 +41,10 @@ public class RollerAgent : Agent
     // call by action
     public override void OnActionReceived(float[] vectorAction)
     {
-        Debug.Log("START OnActionReceived");
-        
         // add force to RollerAgent
         var controlSignal = Vector3.zero;
         controlSignal.x = vectorAction[0];
         controlSignal.z = vectorAction[1];
-        Debug.Log(controlSignal);
         rBody.AddForce(controlSignal * 10);
 
         // when RollerAgent arrive target
