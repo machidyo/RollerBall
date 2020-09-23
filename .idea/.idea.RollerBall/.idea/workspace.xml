@@ -14,10 +14,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/VisualObservationAgent.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/RollerAgent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VisualObservationAgent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RaycastObservationAgent.cs" />
       </list>
     </option>
   </component>
@@ -80,6 +85,8 @@
       <workItem from="1600689325480" duration="595000" />
       <workItem from="1600752869330" duration="72000" />
       <workItem from="1600838380329" duration="871000" />
+      <workItem from="1600841501813" duration="142000" />
+      <workItem from="1600852581210" duration="270000" />
     </task>
     <servers />
   </component>
