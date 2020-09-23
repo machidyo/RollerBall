@@ -7,6 +7,7 @@ using Unity.MLAgents.Sensors;
 public class RollerAgent : Agent
 {
     public Transform target;
+    public bool isDiscreting = false;
     private Rigidbody rBody;
 
     public override void Initialize()
@@ -43,8 +44,19 @@ public class RollerAgent : Agent
     {
         // add force to RollerAgent
         var controlSignal = Vector3.zero;
-        controlSignal.x = vectorAction[0];
-        controlSignal.z = vectorAction[1];
+        if (isDiscreting)
+        {
+            var action = (int) vectorAction[0];
+            if (action == 1) controlSignal.z = 1.0f;
+            else if (action == 2) controlSignal.z = -1.0f;
+            else if (action == 3) controlSignal.x = -1.0f;
+            else if (action == 4) controlSignal.x = 1.0f;
+        }
+        else
+        {
+            controlSignal.x = vectorAction[0];
+            controlSignal.z = vectorAction[1];
+        }
         rBody.AddForce(controlSignal * 10);
 
         // when RollerAgent arrive target
@@ -64,7 +76,17 @@ public class RollerAgent : Agent
 
     public override void Heuristic(float[] actionsOut)
     {
-        actionsOut[0] = Input.GetAxis("Horizontal");
-        actionsOut[1] = Input.GetAxis("Vertical");
+        if (isDiscreting)
+        {
+            actionsOut[0] = Input.GetAxis("Horizontal");
+            actionsOut[1] = Input.GetAxis("Vertical");
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.UpArrow)) actionsOut[0] = 1;
+            else if (Input.GetKey(KeyCode.DownArrow)) actionsOut[0] = 2;
+            else if (Input.GetKey(KeyCode.LeftArrow)) actionsOut[0] = 3;
+            else if (Input.GetKey(KeyCode.RightArrow)) actionsOut[0] = 4;
+        }
     }
 }
