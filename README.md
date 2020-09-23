@@ -37,13 +37,13 @@ Multi agents      | CPU     | Multi agents | 21       | 25            | four age
 
 # Trainer types, actions and observations
 ## Conditions
-Conditions | Scene name              | Trainer type  | Action     | Observation         | Sample yaml 
------------|-------------------------|---------------|------------|---------------------|---------------------------
-1          | SingleScene             | PPO           | Continuous | Vector Observation  | RollerBall.yaml
-2          | SingleScene or others   | SAC           | Continuous | Vector Observation  | SacEx.yaml
-3          | DiscreteScene           | PPO           | Discrete   | Vector Observation  | DiscreteScene.yaml
-4          | VisualObservation       | PPO           | Continuous | Visual Observation  | VisualObservation.yaml
-5          | RaycastObservation      | PPO           | Discrete   | Raycast Observation | RaycastObservation.yaml
+Conditions | Scene name         | Trainer type  | Action     | Observation | Sample yaml 
+-----------|--------------------|---------------|------------|-------------|---------------------------
+1          | SingleScene        | PPO           | Continuous | Vector      | RollerBall.yaml
+2          | SingleScene        | SAC           | Continuous | Vector      | SacEx.yaml
+3          | DiscreteScene      | PPO           | Discrete   | Vector      | DiscreteScene.yaml
+4          | VisualObservation  | PPO           | Continuous | Visual      | VisualObservation.yaml
+5          | RaycastObservation | PPO           | Discrete   | Raycast     | RaycastObservation.yaml
 
 ## Mesurement results
 <img src="https://user-images.githubusercontent.com/1772636/94011110-d61e4b80-fde1-11ea-8f46-4d04127dca64.jpg" width=640 />
@@ -58,4 +58,4 @@ PPO         |  159    | 31           |
 SAC         | 1177    | 138          |
 PPO         | 1318    | 236          | \*1
 
-\*1 It took too long to learn, so I stopped halfway through
+\*1 It took too long to learn, so I stopped halfway through.
