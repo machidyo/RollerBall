@@ -14,24 +14,48 @@ TensorFlow | 2.3.0
 Unity      | 2019.4.10f1
 ML-Agents  | Release6
 
-# Learning time measurement results
-Method         | Learning time(s)  | CPU Usage(%)  | remarks
----------------|-------------------|---------------|------------------------------
-UnityEditor    | 68                | 25            | CPU
-GPU            | 71                | 25            | set GPU at Behavior and \*1
-Build          | 86                | 13            | \*2
-Multi run      | 55                | 35            | --num-envs=4
-Multi agents   | 21                | 25            | four agents, UnityEditor
+# Single or Multi and other options
+## Scenes
+Scene name              | Agent | Sample yaml 
+------------------------|-------|---------------------------
+SingleScene             |  1    | RollerBall.yaml
+MultiScene              |  4    | RollerBall.yaml 
 
-\*1 Since each measurement is performed once, a few seconds is within the margin of error.
-\*2 The build version is slower than UnityEditor because Python and the build app are competing for CPU.
+## Learning time measurement results
+The time is measured until the Mean Reward reaches 1.000.
+Since each measurement is performed once, a few seconds is within the margin of error.
 
-# Leaning method
-Scene name              | Agent | Trainer type  | Sample yaml 
-------------------------|-------|---------------|---------------------------
-SingleScene             |  1    | PPO           | RollerBall.yaml
-SingleScene or others   |  x    | SAC           | SacEx.yaml
-MultiScene              |  4    | PPO           | RollerBall.yaml 
-DiscreteScene           |  1    | PPO           | DiscreteScene.yaml
-VisualObservation       |  1    | PPO           | VisualObservation.yaml
-RaycastObservation      |  1    | PPO           | RaycastObservation.yaml
+UnityEditor/Build | CPU/GPU | Single/Multi | Time(s)  | CPU Usage(%)  | remarks
+------------------|---------|--------------|----------|---------------|---------------------
+UnityEditor       | CPU     | Single       | 68       | 25            | 
+UnityEditor       | GPU     | Single       | 71       | 25            | set GPU at Behavior
+Build             | CPU     | Single       | 86       | 13            | \*1
+Multi run         | CPU     | Multi exe    | 55       | 35            | --num-envs=4
+Multi agents      | CPU     | Multi agents | 21       | 25            | four agents
+
+\*1 The build version is slower than UnityEditor because Python and the build app are competing for CPU.
+
+# Trainer types, actions and observations
+## Conditions
+Conditions | Scene name         | Trainer type  | Action     | Observation | Sample yaml 
+-----------|--------------------|---------------|------------|-------------|---------------------------
+1          | SingleScene        | PPO           | Continuous | Vector      | RollerBall.yaml
+2          | SingleScene        | SAC           | Continuous | Vector      | SacEx.yaml
+3          | DiscreteScene      | PPO           | Discrete   | Vector      | DiscreteScene.yaml
+4          | VisualObservation  | PPO           | Continuous | Visual      | VisualObservation.yaml
+5          | RaycastObservation | PPO           | Discrete   | Raycast     | RaycastObservation.yaml
+
+## Mesurement results
+<img src="https://user-images.githubusercontent.com/1772636/94011110-d61e4b80-fde1-11ea-8f46-4d04127dca64.jpg" width=640 />
+
+The time and number of steps are measured until the Mean Reward reaches 1.000.
+Since each measurement is performed once, a few seconds is within the margin of error.
+Algorithm   | Time(s) | Steps(k)     | Remarks
+------------|---------|--------------|------------
+PPO         |   68    | 13           |
+SAC         |  191    | 121          |
+PPO         |  159    | 31           |
+SAC         | 1177    | 138          |
+PPO         | 1318    | 236          | \*1
+
+\*1 It took too long to learn, so I stopped halfway through.
