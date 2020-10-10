@@ -59,3 +59,29 @@ SAC         | 1177    | 138          |
 PPO         | 1318    | 236          | \*1
 
 \*1 It took too long to learn, so I stopped halfway through.
+
+# Curios or no curiosity
+## conditions
+The scene name is CuriosityScene. You can choose whether are curious or not by switching yaml files. 
+
+curiosity | yaml
+----------|--------------------
+Yes       | CuriosityEx.yaml
+No        | NoCuriosityEx.yaml
+
+### CuriosityScene
+The learning agent will be rewarded for one lap counterclockwise.
+If you can learn well, you will be able around high speed.
+
+<img src="https://user-images.githubusercontent.com/1772636/95654679-9626ca80-0b3c-11eb-9264-046ad9ba71b7.gif" width="480" />
+
+## Resutls
+Oragne: curios, Blue: no curiosity
+
+<img src="https://user-images.githubusercontent.com/1772636/95654673-8a3b0880-0b3c-11eb-8544-5c12e76e4f2d.jpg" width="320" />
+
+Curious agent can learn quickly. No cuirosity agent can NOT learn in this time.But it can learn to around by chance for long time.
+
+<img src="https://user-images.githubusercontent.com/1772636/95654782-4ac0ec00-0b3d-11eb-83b5-9a9e5b98c8ea.jpg" width="320" />
+
+This time it's a simple enviroment that just around, so from a certain point you can see that the reward for curiosity is decreasing.
