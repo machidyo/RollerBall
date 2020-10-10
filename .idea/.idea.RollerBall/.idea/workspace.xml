@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand />
     <select />
@@ -23,6 +26,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RollerAgent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/VisualObservationAgent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RaycastObservationAgent.cs" />
+        <option value="$PROJECT_DIR$/../ml-agents-release_6/config/sample/CuriosityEx.yaml" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CheckPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CuriostyAgent.cs" />
       </list>
     </option>
   </component>
@@ -87,6 +93,9 @@
       <workItem from="1600838380329" duration="871000" />
       <workItem from="1600841501813" duration="142000" />
       <workItem from="1600852581210" duration="868000" />
+      <workItem from="1601018414158" duration="3837000" />
+      <workItem from="1601381337246" duration="1937000" />
+      <workItem from="1601430967472" duration="5289000" />
     </task>
     <servers />
   </component>
@@ -109,5 +118,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2183" y="50" width="672" height="678" key="search.everywhere.popup" timestamp="1601021975750">
+      <screen x="1920" y="-387" width="1200" height="1890" />
+    </state>
+    <state x="2183" y="50" width="672" height="678" key="search.everywhere.popup/1920.-387.1200.1890/0.0.1920.1170@1920.-387.1200.1890" timestamp="1601021975750" />
   </component>
 </project>
