@@ -57,7 +57,7 @@ public class CuriostyAgent : Agent
         checkPointFlags[checkPoint] = true;
 
         // goal check
-        if (checkPointFlags.Count(flag => flag) >= 3)
+        if (checkPointFlags.Count(flag => flag) >= 4)
         {
             Debug.Log("Goal!! add 2 points!");
             AddReward(2.0f);
